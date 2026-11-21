@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#efede5">
+  <meta name="description" content="Личный сайт pluseight с интерактивной 3D-восьмёркой.">
+  <title>pluseight — интерактивный автопортрет</title>
+  <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/vendor/space-grotesk-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" src="./assets/main.js"></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#intro">К содержанию</a>
+  <div class="sheet">
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="pluseight — начало страницы">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>pluseight</span>
+      </a>
+      <nav aria-label="Навигация по сайту">
+        <a class="nav-intro" href="#intro">Обо мне</a>
+        <a href="#scene">3D-сцена</a>
+        <a class="source-link" href="https://github.com/pluseight8">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main class="composition">
+      <section class="intro" id="intro" aria-labelledby="title">
+        <p class="eyebrow"><span aria-hidden="true"></span>Личный сайт</p>
+        <h1 class="wordmark" id="title" aria-label="pluseight">
+          <span aria-hidden="true">plus</span>
+          <span class="outline" aria-hidden="true">eight<span class="wordmark-dot">.</span></span>
+        </h1>
+        <p class="intro-copy">Я pluseight. Мой уголок сети с восьмёркой в движении.</p>
+        <a class="primary" href="#scene" id="explore">
+          <span>К 3D-сцене</span><span class="primary-arrow" aria-hidden="true">↘</span>
+        </a>
+      </section>
+
+      <figure class="scene" id="scene" aria-labelledby="scene-label">
+        <figcaption class="scene-header">
+          <span class="scene-caption" id="scene-label"><span class="caption-cross" aria-hidden="true"></span>Форма 08</span>
+          <span class="scene-type" id="scene-type"><span aria-hidden="true"></span><span id="scene-state">Three.js</span></span>
+        </figcaption>
+        <div class="viewport" id="viewport">
+          <div class="register" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="scene-axis" aria-hidden="true"></div>
+          <div class="scale scale-left" aria-hidden="true"></div>
+          <div class="scale scale-right" aria-hidden="true"></div>
+          <div class="poster" aria-hidden="true"></div>
+          <div class="canvas-mount" id="canvas-mount" role="group" tabindex="-1" aria-label="Интерактивная 3D-восьмёрка" aria-describedby="scene-help"></div>
+        </div>
+        <div class="scene-footer">
+          <p class="scene-help" id="scene-help">Статичный ракурс</p>
+          <div class="controls" id="scene-controls" hidden>
+            <div class="mode-switch" role="group" aria-label="Режим отображения">
+              <button type="button" data-mode="solid" aria-pressed="true">Объём</button>
+              <button type="button" data-mode="wire" aria-pressed="false">Каркас</button>
+            </div>
+            <button class="icon-button" type="button" id="motion" aria-label="Автовращение" aria-pressed="true" title="Автовращение">
+              <span class="motion-icon" aria-hidden="true"></span>
+            </button>
+            <button class="icon-button reset" type="button" id="reset" aria-label="Вернуть исходный ракурс" title="Вернуть исходный ракурс">↺</button>
+          </div>
+        </div>
+        <noscript><p class="no-script">Для интерактивной сцены включите JavaScript.</p></noscript>
+      </figure>
+    </main>
+
+    <footer class="site-footer">
+      <span><span class="footer-mark" aria-hidden="true">×</span> pluseight</span>
+      <a href="https://github.com/pluseight8/pluseight-3d">Исходный код <span aria-hidden="true">↗</span></a>
+    </footer>
+  </div>
+</body>
+</html>
