@@ -1,0 +1,482 @@
+/* A phosphor display framed by its own CRT raster. */
+:root[data-theme="terminal"] {
+  --paper: #07130c;
+  --ink: #cbffba;
+  --cobalt: #9ff580;
+  --low-ink: #a0c998;
+  --line: #73bc685c;
+  --hairline: #73bc6838;
+  --surface: #101f14;
+  --surface-raised: #0c1b10;
+  --surface-hover: #233d27;
+  --action: #befdaa;
+  --on-action: #102313;
+  --display: "IBM Plex Mono", monospace;
+  --object-filter: grayscale(1) sepia(.92) saturate(2.6) hue-rotate(61deg) brightness(1.18);
+  --art-filter: grayscale(1) sepia(1) saturate(4) hue-rotate(63deg) brightness(1.4);
+  --art-opacity: .47;
+  --picker-accent: #9ff580;
+  --sheet-background: var(--paper);
+  --frame-surface: #0e24157d;
+}
+
+[data-theme="terminal"] .theme-decoration::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, #8bec7e10 0 1px, transparent 1px 4px);
+}
+
+[data-theme="terminal"] .theme-decoration::after {
+  content: "";
+  position: absolute;
+  inset: 12% 2% 8%;
+  border-inline: 1px dashed #90db7540;
+}
+
+[data-theme="terminal"] .masthead nav,
+[data-theme="terminal"] .controls button,
+[data-theme="terminal"] .primary {
+  font-family: var(--mono);
+}
+
+[data-theme="terminal"] .wordmark {
+  font-size: clamp(5.25rem, 10.3vw, 11rem);
+  font-weight: 500;
+  letter-spacing: -.14em;
+  line-height: .83;
+  text-shadow: 0 0 24px #98ff7935;
+}
+
+[data-theme="terminal"] .wordmark .outline {
+  -webkit-text-fill-color: #183f26;
+  -webkit-text-stroke: 1px currentColor;
+}
+
+[data-theme="terminal"] .eyebrow > span {
+  width: .65rem;
+  height: .65rem;
+  background: var(--cobalt);
+  box-shadow: 0 0 12px #86f96280;
+}
+
+[data-theme="terminal"] .viewport {
+  border: 1px dashed var(--line);
+  border-radius: 1rem;
+  box-shadow: 0 0 0 4px #102618, inset 0 0 48px #050c08;
+}
+
+[data-theme="terminal"] .register i { display: none; }
+
+[data-theme="terminal"] .primary {
+  border-color: var(--action);
+  box-shadow: 4px 4px 0 #315b34;
+}
+
+/* Liquid metal, a quiet serif and a mirror-like exhibition surface. */
+:root[data-theme="chrome"] {
+  --paper: #e1e5f1;
+  --ink: #272d44;
+  --cobalt: #4c557e;
+  --low-ink: #4b556e;
+  --line: #48537065;
+  --hairline: #6e779e3d;
+  --surface: #e9edf9;
+  --surface-raised: #f7f8feee;
+  --surface-hover: #cbd4e9;
+  --action: #343d58;
+  --on-action: #f8faff;
+  --display: Georgia, "Times New Roman", serif;
+  --object-filter: grayscale(.98) brightness(1.15) contrast(1.09);
+  --art-filter: grayscale(.85) brightness(.88);
+  --art-opacity: .38;
+  --picker-accent: #7584ac;
+  --sheet-background: var(--paper);
+  --frame-surface: #f3f5ff73;
+}
+
+[data-theme="chrome"] .theme-decoration::before,
+[data-theme="chrome"] .theme-decoration::after {
+  content: "";
+  position: absolute;
+  width: 86%;
+  height: 59%;
+  top: 15%;
+  left: 31%;
+  transform: rotate(-30deg);
+  border: 2px solid #f9fbff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #627095, 0 0 0 10px #d4dced9c, inset 0 0 0 18px #f8faff94,
+    inset 0 0 0 20px #bac5ddb3, 0 38px 76px #7984a42a;
+}
+
+[data-theme="chrome"] .theme-decoration::after {
+  top: -13%;
+  left: -30%;
+  height: 84%;
+  transform: rotate(-39deg);
+  opacity: .52;
+}
+
+[data-theme="chrome"] .wordmark {
+  font-size: clamp(5.25rem, 11vw, 12.25rem);
+  font-weight: 400;
+  letter-spacing: -.08em;
+  line-height: .79;
+}
+
+[data-theme="chrome"] .wordmark .outline {
+  -webkit-text-fill-color: #4a597e;
+  -webkit-text-stroke: 0;
+}
+
+@supports (background-clip: text) {
+  [data-theme="chrome"] .wordmark > span {
+    background: linear-gradient(175deg, #233049 16%, #5b6a8b 36%, #2e3850 49%, #596886 59%, #303b57 82%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+[data-theme="chrome"] .viewport {
+  border-color: #f9faff;
+  border-radius: 2rem;
+  box-shadow: 0 0 0 1px #8994b669, 0 18px 48px #7280a529;
+}
+
+[data-theme="chrome"] .register,
+[data-theme="chrome"] .scale,
+[data-theme="chrome"] .scene-axis { display: none; }
+
+[data-theme="chrome"] .primary,
+[data-theme="chrome"] .masthead nav,
+[data-theme="chrome"] .mode-switch,
+[data-theme="chrome"] .icon-button { border-radius: 999px; }
+
+[data-theme="chrome"] .mode-switch { overflow: hidden; }
+[data-theme="chrome"] .mode-switch button:focus-visible { outline-offset: -4px; }
+
+@media (min-width: 781px) {
+  [data-theme="chrome"] .composition { grid-template-columns: 1.23fr .77fr; gap: clamp(1rem, 5vw, 5rem); }
+  [data-theme="chrome"] .scene { grid-column: 1; grid-row: 1; }
+  [data-theme="chrome"] .intro { grid-column: 2; grid-row: 1; padding-inline-start: 0; }
+}
+
+/* Block type and an amber, low-resolution arcade floor. */
+:root[data-theme="arcade"] {
+  --paper: #281426;
+  --ink: #fff0d8;
+  --cobalt: #ffae55;
+  --low-ink: #ffd4af;
+  --line: #f9a25c7a;
+  --hairline: #fd9b5a45;
+  --surface: #46263e;
+  --surface-raised: #351d32;
+  --surface-hover: #5c3450;
+  --action: #ffa753;
+  --on-action: #2d1025;
+  --display: Impact, "Arial Black", "Space Grotesk", sans-serif;
+  --object-filter: hue-rotate(167deg) saturate(1.25) contrast(1.10) brightness(1.25);
+  --art-filter: hue-rotate(172deg) saturate(1.12) brightness(1.35);
+  --art-opacity: .38;
+  --picker-accent: #ffae55;
+  --sheet-background: var(--paper);
+  --frame-surface: #482536c9;
+}
+
+[data-theme="arcade"] .theme-decoration::before {
+  content: "";
+  position: absolute;
+  inset: auto -18% -2% -18%;
+  height: 41%;
+  clip-path: polygon(28% 0, 72% 0, 100% 100%, 0 100%);
+  background:
+    repeating-linear-gradient(0deg, #ffa3684c 0 2px, transparent 2px 27px),
+    repeating-linear-gradient(90deg, #ffa36838 0 2px, transparent 2px 56px),
+    #381d34;
+  transform: perspective(480px) rotateX(40deg);
+  transform-origin: bottom;
+}
+
+[data-theme="arcade"] .theme-decoration::after {
+  content: "";
+  position: absolute;
+  inset: 18% 7% 14% auto;
+  width: min(48%, 42rem);
+  clip-path: polygon(0 12%, 12% 12%, 12% 0, 88% 0, 88% 12%, 100% 12%, 100% 88%, 88% 88%, 88% 100%, 12% 100%, 12% 88%, 0 88%);
+  background: repeating-conic-gradient(#7b4144 0 25%, transparent 0 50%) 0 0 / 16px 16px;
+  opacity: .34;
+}
+
+[data-theme="arcade"] .wordmark {
+  font-size: clamp(4.85rem, 10.4vw, 11rem);
+  letter-spacing: -.085em;
+  line-height: .83;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 0 #924757, 8px 8px 0 #51243e;
+}
+
+[data-theme="arcade"] .wordmark .outline {
+  -webkit-text-fill-color: var(--cobalt);
+  -webkit-text-stroke: 0;
+}
+
+[data-theme="arcade"] .wordmark .wordmark-dot { -webkit-text-fill-color: var(--ink); }
+
+[data-theme="arcade"] .eyebrow > span {
+  width: 2rem;
+  height: .75rem;
+  background: repeating-conic-gradient(var(--cobalt) 0 25%, transparent 0 50%) 0 0 / 8px 8px;
+}
+
+[data-theme="arcade"] .viewport {
+  border: 3px solid var(--cobalt);
+  box-shadow: 6px 6px 0 #924757;
+}
+
+[data-theme="arcade"] .register i,
+[data-theme="arcade"] .scale { display: none; }
+
+[data-theme="arcade"] .primary {
+  border-color: var(--action);
+  box-shadow: 4px 4px 0 #924757;
+  text-transform: uppercase;
+}
+
+/* Dimension lines, graph paper and an icy technical plate. */
+:root[data-theme="blueprint"] {
+  --paper: #0c2850;
+  --ink: #e5f6ff;
+  --cobalt: #a0defa;
+  --low-ink: #bad7e8;
+  --line: #9ee0fb69;
+  --hairline: #9ee0fb46;
+  --surface: #143762;
+  --surface-raised: #12335b;
+  --surface-hover: #274e79;
+  --action: #c8eafa;
+  --on-action: #0d2b4d;
+  --display: "IBM Plex Mono", monospace;
+  --object-filter: hue-rotate(-32deg) saturate(.66) brightness(1.29);
+  --art-filter: hue-rotate(-29deg) saturate(.72) brightness(1.6);
+  --art-opacity: .55;
+  --picker-accent: #a0defa;
+  --sheet-background:
+    linear-gradient(#81c9fc26 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(90deg, #81c9fc26 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(#81c9fc14 1px, transparent 1px) 0 0 / 16px 16px,
+    linear-gradient(90deg, #81c9fc14 1px, transparent 1px) 0 0 / 16px 16px,
+    var(--paper);
+  --frame-surface: #0e31608c;
+}
+
+[data-theme="blueprint"] .theme-decoration::before {
+  content: "";
+  position: absolute;
+  inset: 3% 2%;
+  border: 1px solid #92cef36e;
+  box-shadow: inset 0 0 0 5px #0c2850ab, inset 0 0 0 6px #92cef336;
+}
+
+[data-theme="blueprint"] .intro::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 4% 10% 29% 2%;
+  border-block: 1px dashed var(--hairline);
+  border-inline-start: 1px dashed var(--hairline);
+}
+
+[data-theme="blueprint"] .wordmark {
+  font-size: clamp(4.75rem, 9.9vw, 10.5rem);
+  font-weight: 500;
+  letter-spacing: -.11em;
+  line-height: .94;
+}
+
+[data-theme="blueprint"] .wordmark > span:first-child {
+  -webkit-text-fill-color: #a2ddf820;
+  -webkit-text-stroke: 1px var(--cobalt);
+}
+
+[data-theme="blueprint"] .wordmark .outline {
+  -webkit-text-stroke: 1px var(--ink);
+}
+
+[data-theme="blueprint"] .viewport {
+  border-style: dashed;
+  box-shadow: inset 0 0 0 6px #8bc6ef0a;
+}
+
+[data-theme="blueprint"] .scene-axis {
+  background:
+    repeating-linear-gradient(90deg, var(--hairline) 0 4px, transparent 4px 9px) center / 100% 1px no-repeat,
+    repeating-linear-gradient(0deg, var(--hairline) 0 4px, transparent 4px 9px) center / 1px 100% no-repeat;
+  opacity: 1;
+}
+
+[data-theme="blueprint"] .primary { border: 1px dashed var(--cobalt); }
+
+/* A lilac sunset with a striped sun and silk-screened horizon. */
+:root[data-theme="vaporwave"] {
+  --paper: #f3e5ff;
+  --ink: #3b215b;
+  --cobalt: #703e9e;
+  --low-ink: #55396f;
+  --line: #70469078;
+  --hairline: #865aaa4d;
+  --surface: #f6e7fb;
+  --surface-raised: #fcf2ffef;
+  --surface-hover: #e6c7ed;
+  --action: #543481;
+  --on-action: #fff5ff;
+  --display: "Space Grotesk", sans-serif;
+  --object-filter: hue-rotate(53deg) saturate(.7) brightness(1.22);
+  --art-filter: hue-rotate(45deg) saturate(.76) brightness(1.11);
+  --art-opacity: .46;
+  --picker-accent: #d8548a;
+  --sheet-background: var(--paper);
+  --frame-surface: #faeefa65;
+}
+
+[data-theme="vaporwave"] .theme-decoration::before {
+  content: "";
+  position: absolute;
+  top: -8%;
+  right: -1%;
+  width: clamp(13rem, 48vw, 47rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: repeating-linear-gradient(0deg, #f489a7b3 0 11px, #fde6f9a6 11px 16px);
+  box-shadow: 0 0 0 12px #ffb1b82e, 0 0 0 25px #ffbbc520;
+}
+
+[data-theme="vaporwave"] .theme-decoration::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 24%;
+  clip-path: polygon(0 16%, 26% 37%, 51% 14%, 74% 28%, 100% 3%, 100% 100%, 0 100%);
+  background:
+    repeating-linear-gradient(0deg, #7a59bc26 0 1px, transparent 1px 9px),
+    #e1c8ff8c;
+}
+
+[data-theme="vaporwave"] .wordmark {
+  font-size: clamp(5.5rem, 11vw, 12rem);
+  transform: skewX(-8deg);
+  transform-origin: left center;
+  letter-spacing: -.095em;
+  text-shadow: 3px 4px 0 #f38fb0c9;
+}
+
+[data-theme="vaporwave"] .wordmark .outline {
+  -webkit-text-fill-color: #76549f;
+  -webkit-text-stroke: 0;
+  text-shadow: 3px 4px 0 #f38fb0e6;
+}
+
+[data-theme="vaporwave"] .wordmark .wordmark-dot { -webkit-text-fill-color: #873769; }
+
+[data-theme="vaporwave"] .viewport {
+  border-radius: 48% 48% .75rem .75rem / 28% 28% .75rem .75rem;
+  border: 1px solid #995f9f9c;
+  box-shadow: 6px 7px 0 #bd75b12c;
+}
+
+[data-theme="vaporwave"] .register,
+[data-theme="vaporwave"] .scale { display: none; }
+
+[data-theme="vaporwave"] .primary {
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 #dc88b3aa;
+}
+
+/* UV light seen through a dark optical instrument. */
+:root[data-theme="ultraviolet"] {
+  --paper: #140e27;
+  --ink: #f4eaff;
+  --cobalt: #d6a6ff;
+  --low-ink: #dbc2f1;
+  --line: #bb8bf37a;
+  --hairline: #a884d74f;
+  --surface: #241638;
+  --surface-raised: #221733;
+  --surface-hover: #43285d;
+  --action: #d3a1ff;
+  --on-action: #211432;
+  --display: "Space Grotesk", sans-serif;
+  --object-filter: hue-rotate(43deg) saturate(1.35) brightness(1.40) drop-shadow(0 0 18px #9964ff5c);
+  --art-filter: hue-rotate(49deg) saturate(1.35) brightness(1.65);
+  --art-opacity: .62;
+  --picker-accent: #cf9aff;
+  --sheet-background: var(--paper);
+  --frame-surface: #25183f42;
+}
+
+[data-theme="ultraviolet"] .theme-decoration::before,
+[data-theme="ultraviolet"] .theme-decoration::after {
+  content: "";
+  position: absolute;
+  width: clamp(24rem, 72vw, 76rem);
+  height: clamp(11rem, 42vw, 39rem);
+  transform: rotate(-36deg);
+  border: 1px solid #b391f35e;
+  border-radius: 50%;
+}
+
+[data-theme="ultraviolet"] .theme-decoration::before {
+  top: 15%;
+  right: -12%;
+  box-shadow: 0 0 0 16px #805fb72a, 0 0 0 32px #805fb715, inset 0 0 54px #aa6ad62e;
+}
+
+[data-theme="ultraviolet"] .theme-decoration::after {
+  top: 29%;
+  right: 2%;
+  border-color: #b98ef556;
+  transform: rotate(27deg);
+}
+
+[data-theme="ultraviolet"] .wordmark {
+  font-size: clamp(5.5rem, 12.45vw, 13rem);
+  line-height: .76;
+  letter-spacing: -.128em;
+}
+
+[data-theme="ultraviolet"] .wordmark .outline {
+  -webkit-text-stroke: 1px #e5c9ff;
+  text-shadow: 0 0 28px #9765de43;
+}
+
+[data-theme="ultraviolet"] .viewport {
+  border-radius: 1rem;
+  box-shadow: inset 0 0 32px #b482ef14, 0 0 28px #b382ee26;
+}
+
+[data-theme="ultraviolet"] .register i { border-color: #d3a1ff9c; }
+
+[data-theme="ultraviolet"] .primary {
+  border-radius: .25rem;
+  border-color: var(--action);
+  box-shadow: 0 0 16px #bb82ef64;
+}
+
+@media (max-width: 780px) {
+  [data-theme="terminal"] .wordmark,
+  [data-theme="blueprint"] .wordmark { font-size: clamp(5rem, 19vw, 9rem); }
+  [data-theme="arcade"] .wordmark { font-size: clamp(4.75rem, 17vw, 9rem); }
+  [data-theme="chrome"] .wordmark,
+  [data-theme="vaporwave"] .wordmark,
+  [data-theme="ultraviolet"] .wordmark { font-size: clamp(5.5rem, 21vw, 10rem); }
+  [data-theme="chrome"] .theme-decoration::before { left: 20%; top: 34%; }
+  [data-theme="arcade"] .theme-decoration::before { height: 48%; }
+  [data-theme="arcade"] .theme-decoration::after { inset-block: 36% 10%; width: 80%; }
+  [data-theme="vaporwave"] .theme-decoration::before { top: 19%; right: -12%; }
+  [data-theme="ultraviolet"] .theme-decoration::before { top: 48%; right: -13%; }
+  [data-theme="ultraviolet"] .theme-decoration::after { top: 58%; right: -5%; }
+}
+
+@media (max-width: 350px) {
+  [data-theme="arcade"] .wordmark { font-size: 4.25rem; }
+}

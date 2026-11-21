@@ -4,27 +4,45 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#efede5">
-  <meta name="description" content="Личный сайт pluseight с интерактивной 3D-восьмёркой и движущейся кобальтовой графикой.">
+  <meta name="description" content="Личный сайт pluseight с интерактивной 3D-восьмёркой, анимированным фоном и двадцатью оформлениями.">
   <title>pluseight — интерактивный автопортрет</title>
   <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/vendor/space-grotesk-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./assets/style.css?v=2">
+  <link rel="stylesheet" href="./assets/style.css?v=3">
+  <link rel="stylesheet" href="./assets/themes.css">
+  <link rel="stylesheet" href="./assets/themes-print.css">
+  <link rel="stylesheet" href="./assets/themes-digital.css">
+  <link rel="stylesheet" href="./assets/themes-material.css">
+  <script src="./assets/themes.js"></script>
   <script type="module" src="./assets/main.js?v=2"></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#intro">К содержанию</a>
   <div class="sheet">
     <div class="background-art" id="background-art" aria-hidden="true"></div>
+    <div class="theme-decoration" aria-hidden="true"></div>
     <header class="masthead">
       <a class="brand" href="#top" aria-label="pluseight — начало страницы">
         <span class="brand-mark" aria-hidden="true"></span>
         <span>pluseight</span>
       </a>
-      <nav aria-label="Навигация по сайту">
-        <a class="nav-intro" href="#intro" aria-current="location">Обложка</a>
-        <a href="#scene">3D-сцена</a>
-        <a class="source-link" href="https://github.com/pluseight8">GitHub <span aria-hidden="true">↗</span></a>
-      </nav>
+      <div class="header-actions">
+        <nav aria-label="Навигация по сайту">
+          <a class="nav-intro" href="#intro" aria-current="location">Обложка</a>
+          <a class="nav-scene" href="#scene">3D-сцена</a>
+          <a class="source-link" href="https://github.com/pluseight8">GitHub <span aria-hidden="true">↗</span></a>
+        </nav>
+        <div class="style-tools" role="group" aria-label="Оформление сайта" hidden>
+          <button class="style-step" id="style-prev" type="button" aria-label="Предыдущий стиль" title="Предыдущий стиль">‹</button>
+          <button class="style-open" id="style-open" type="button" aria-haspopup="dialog" aria-controls="style-dialog">
+            <span class="style-swatch" aria-hidden="true"></span>
+            <span>Стили</span>
+            <span class="style-position" id="style-position" aria-hidden="true">01 / 20</span>
+          </button>
+          <button class="style-step" id="style-next" type="button" aria-label="Следующий стиль" title="Следующий стиль">›</button>
+        </div>
+        <span class="visually-hidden" id="style-status" role="status"></span>
+      </div>
     </header>
 
     <main class="composition">
@@ -74,5 +92,18 @@
       <a href="https://github.com/pluseight8/pluseight-3d">Исходный код <span aria-hidden="true">↗</span></a>
     </footer>
   </div>
+
+  <dialog class="style-dialog" id="style-dialog" aria-labelledby="style-title">
+    <div class="style-panel">
+      <header class="style-panel-header">
+        <div>
+          <h2 id="style-title">Стили</h2>
+          <p id="style-count">20 оформлений</p>
+        </div>
+        <button class="style-close" id="style-close" type="button" aria-label="Закрыть выбор стиля" autofocus>×</button>
+      </header>
+      <div class="style-gallery" id="style-gallery"></div>
+    </div>
+  </dialog>
 </body>
 </html>

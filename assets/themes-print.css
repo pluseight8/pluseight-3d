@@ -1,0 +1,445 @@
+/* Swiss International Style */
+:root[data-theme="swiss"] {
+  --paper: #f1eee6;
+  --ink: #171615;
+  --cobalt: #bc2029;
+  --low-ink: #3e3833;
+  --line: #17161566;
+  --hairline: #17161542;
+  --surface: #f2ede7;
+  --surface-raised: #f6f2e9;
+  --surface-hover: #f4d7d7;
+  --action: #b91924;
+  --on-action: #fff9ec;
+  --display: "Arial Narrow", Arial, sans-serif;
+  --object-filter: grayscale(1) contrast(1.24) brightness(1.09);
+  --art-opacity: .20;
+  --art-filter: grayscale(1);
+  --frame-surface: #cf2a33;
+  --sheet-background: #f1eee6;
+}
+
+:root[data-theme="swiss"] .theme-decoration::before {
+  position: absolute;
+  inset: 0 4.25%;
+  content: "";
+  border-inline: 1px solid #17161515;
+  background: repeating-linear-gradient(90deg, transparent 0 calc(8.333% - 1px), #17161510 calc(8.333% - 1px) 8.333%);
+}
+
+:root[data-theme="swiss"] .wordmark {
+  font-size: clamp(4.5rem, 11vw, 11.5rem);
+  letter-spacing: -.091em;
+  line-height: .86;
+  text-transform: uppercase;
+}
+
+:root[data-theme="swiss"] .wordmark > span:first-child { color: var(--cobalt); }
+:root[data-theme="swiss"] .wordmark .outline {
+  color: var(--ink);
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: 0;
+}
+
+:root[data-theme="swiss"] .viewport { border-color: var(--ink); }
+:root[data-theme="swiss"] .viewport .register,
+:root[data-theme="swiss"] .viewport .scene-axis,
+:root[data-theme="swiss"] .viewport .scale { opacity: .24; }
+
+/* Bauhaus: the type and model occupy opposing geometric fields. */
+:root[data-theme="bauhaus"] {
+  --paper: #f1ecd7;
+  --ink: #191913;
+  --cobalt: #ad2f23;
+  --low-ink: #3e3929;
+  --line: #29251066;
+  --hairline: #29251052;
+  --surface: #faf2d9;
+  --surface-raised: #faf2d9;
+  --surface-hover: #f7deb0;
+  --action: #273d8b;
+  --on-action: #fff8dd;
+  --object-filter: grayscale(.7) contrast(1.22) brightness(.82);
+  --art-opacity: .13;
+  --art-filter: grayscale(1);
+  --sheet-background: #f1ecd7;
+  --frame-surface: radial-gradient(circle at 56% 54%, #ecc144 0 42%, #f5e5ae 42.2% 55%, transparent 55.2%);
+}
+
+:root[data-theme="bauhaus"] .theme-decoration::before {
+  position: absolute;
+  inset: -5vw -5vw auto auto;
+  width: 28vw;
+  min-width: 10rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  content: "";
+  background: #bf3e2c;
+  opacity: .87;
+}
+
+:root[data-theme="bauhaus"] .theme-decoration::after {
+  position: absolute;
+  inset: auto auto 0 0;
+  width: 27vw;
+  height: max(10vw, 4.5rem);
+  background: #2c4693;
+  clip-path: polygon(0 5%, 100% 100%, 0 100%);
+  content: "";
+  opacity: .78;
+}
+
+:root[data-theme="bauhaus"] .wordmark {
+  font-size: clamp(4.75rem, 11.5vw, 11.5rem);
+  font-weight: 700;
+  letter-spacing: -.075em;
+  line-height: .81;
+}
+
+:root[data-theme="bauhaus"] .wordmark > span:first-child { color: #285099; }
+:root[data-theme="bauhaus"] .wordmark .outline {
+  color: var(--ink);
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: 0;
+}
+:root[data-theme="bauhaus"] .viewport { border-width: 2px; }
+:root[data-theme="bauhaus"] .scene-type {
+  padding: .125rem .375rem;
+  background: var(--surface-raised);
+}
+:root[data-theme="bauhaus"] .primary { box-shadow: .35rem .35rem 0 #ecc144; }
+:root[data-theme="bauhaus"] .site-footer { background: #f1ecd7e3; }
+
+/* Risograph: offset ink plates leave a visible registration fringe. */
+:root[data-theme="risograph"] {
+  --paper: #f8dfd7;
+  --ink: #311944;
+  --cobalt: #9b203e;
+  --low-ink: #54294b;
+  --line: #55234162;
+  --hairline: #55234148;
+  --surface: #ffece4;
+  --surface-raised: #fce8df;
+  --surface-hover: #f3c1b5;
+  --action: #902341;
+  --on-action: #fff5e9;
+  --display: Georgia, "Times New Roman", serif;
+  --object-filter: hue-rotate(32deg) saturate(1.38) contrast(1.06);
+  --art-opacity: .52;
+  --art-filter: hue-rotate(178deg) saturate(2.7);
+  --sheet-background: #f8dfd7;
+  --frame-surface: #e9a8b349;
+}
+
+:root[data-theme="risograph"] .theme-decoration::before,
+:root[data-theme="risograph"] .theme-decoration::after {
+  position: absolute;
+  content: "";
+  background: radial-gradient(circle, currentColor 0 1px, transparent 1.2px) 0 0 / 7px 7px;
+}
+
+:root[data-theme="risograph"] .theme-decoration::before {
+  inset: 5% -8% auto auto;
+  width: 48%;
+  height: 58%;
+  color: #be3f5b5c;
+  transform: rotate(-14deg);
+  clip-path: polygon(21% 0, 100% 13%, 90% 100%, 0 90%);
+}
+
+:root[data-theme="risograph"] .theme-decoration::after {
+  inset: auto auto -12% -10%;
+  width: 47%;
+  height: 43%;
+  color: #d2603869;
+  transform: rotate(-12deg);
+  clip-path: polygon(0 20%, 100% 0, 90% 100%, 0 100%);
+}
+
+:root[data-theme="risograph"] .wordmark {
+  line-height: .86;
+  letter-spacing: -.094em;
+  transform: rotate(-2.5deg);
+  transform-origin: left center;
+}
+
+:root[data-theme="risograph"] .wordmark > span:first-child {
+  color: #43255a;
+  text-shadow: .055em .027em 0 #d65b54;
+}
+
+:root[data-theme="risograph"] .wordmark .outline {
+  color: #842747;
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: 0;
+  text-shadow: -.025em .026em 0 #ea886c;
+}
+
+:root[data-theme="risograph"] .viewport { box-shadow: 4px -4px 0 -1px #ab395672; }
+
+/* Sumi ink and the vermilion seal share a warm paper field. */
+:root[data-theme="sumi"] {
+  --paper: #f2e9d9;
+  --ink: #29251f;
+  --cobalt: #8d2d24;
+  --low-ink: #4e4238;
+  --line: #4b372d61;
+  --hairline: #4b372d42;
+  --surface: #f9efdd;
+  --surface-raised: #f9efdd;
+  --surface-hover: #f0d5c3;
+  --action: #8d2d24;
+  --on-action: #fff4df;
+  --display: "Palatino Linotype", Georgia, serif;
+  --object-filter: grayscale(1) contrast(1.36) brightness(.77);
+  --art-opacity: .34;
+  --art-filter: grayscale(1) sepia(.34);
+  --sheet-background: url("./plate.webp") center / cover #f2e9d9;
+  --frame-surface: radial-gradient(circle at 53% 48%, #b24231 0 34%, transparent 34.2%);
+}
+
+:root[data-theme="sumi"] .sheet { background-blend-mode: luminosity; }
+:root[data-theme="sumi"] .theme-decoration::before {
+  position: absolute;
+  inset: 13% auto 18% 7%;
+  width: .45rem;
+  content: "";
+  color: #40352b2c;
+  background: currentColor;
+  transform: rotate(10deg);
+  clip-path: polygon(55% 0, 100% 20%, 79% 46%, 100% 83%, 33% 100%, 3% 83%, 28% 56%, 0 29%);
+}
+
+:root[data-theme="sumi"] .wordmark {
+  font-size: clamp(5rem, 12vw, 12rem);
+  line-height: .79;
+  letter-spacing: -.101em;
+}
+
+:root[data-theme="sumi"] .wordmark .outline {
+  color: #312924;
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: 0;
+}
+:root[data-theme="sumi"] .viewport :is(.scene-axis, .scale) { opacity: .19; }
+:root[data-theme="sumi"] .primary { border-radius: 1.25rem 0 1.25rem 0; }
+
+/* Art Deco steps and gold filigree. */
+:root[data-theme="deco"] {
+  color-scheme: dark;
+  --paper: #211b22;
+  --ink: #f6ddaa;
+  --cobalt: #e5b96b;
+  --low-ink: #dec197;
+  --line: #e5b96b92;
+  --hairline: #e5b96b59;
+  --surface: #30242c;
+  --surface-raised: #342530;
+  --surface-hover: #503949;
+  --action: #ebc87e;
+  --on-action: #28202c;
+  --display: Georgia, "Times New Roman", serif;
+  --object-filter: grayscale(1) sepia(.85) saturate(2.4) brightness(1.12) contrast(1.12);
+  --art-opacity: .38;
+  --art-filter: grayscale(1) sepia(1) saturate(3) brightness(1.32);
+  --sheet-background: #211b22;
+  --frame-surface: #2e232bab;
+}
+
+:root[data-theme="deco"] .theme-decoration::before,
+:root[data-theme="deco"] .theme-decoration::after {
+  content: "";
+  position: absolute;
+  inset: 8rem 1.5% 5rem;
+  border: 1px solid #efc06d63;
+  clip-path: polygon(0 0, 28% 0, 28% 4%, 72% 4%, 72% 0, 100% 0, 100% 100%, 72% 100%, 72% 96%, 28% 96%, 28% 100%, 0 100%);
+}
+
+:root[data-theme="deco"] .theme-decoration::after {
+  inset: 8.5rem 2% 5.5rem;
+  border-color: #efc06d35;
+}
+
+:root[data-theme="deco"] .wordmark {
+  font-size: clamp(4.5rem, 10.75vw, 10rem);
+  font-weight: 400;
+  letter-spacing: -.081em;
+  line-height: .86;
+  text-transform: uppercase;
+}
+
+:root[data-theme="deco"] .wordmark .outline { -webkit-text-stroke-width: 1px; }
+:root[data-theme="deco"] .intro {
+  padding-inline: 0;
+  text-align: center;
+}
+:root[data-theme="deco"] .intro .eyebrow { justify-content: center; }
+:root[data-theme="deco"] .wordmark { margin-inline: auto; }
+:root[data-theme="deco"] .viewport {
+  border: 3px double #e5b96b8c;
+  border-radius: 47% 47% 0 0 / 30% 30% 0 0;
+}
+
+:root[data-theme="deco"] .viewport::before {
+  position: absolute;
+  inset: .65rem .65rem 1.1rem;
+  border: 1px solid #e5b96b60;
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+
+:root[data-theme="deco"] .viewport .register { opacity: .25; }
+:root[data-theme="deco"] .primary { border: 3px double var(--on-action); }
+
+/* Seventies: warm stripes, soft outlines, and a sunburst frame. */
+:root[data-theme="seventies"] {
+  --paper: #f3deb7;
+  --ink: #46251e;
+  --cobalt: #9c3d28;
+  --low-ink: #583629;
+  --line: #65362a68;
+  --hairline: #65362a44;
+  --surface: #f6e7c9;
+  --surface-raised: #f9e9c7;
+  --surface-hover: #e9c591;
+  --action: #7e3327;
+  --on-action: #fff0d7;
+  --display: Georgia, "Times New Roman", serif;
+  --object-filter: hue-rotate(141deg) saturate(.85) sepia(.3) contrast(1.03);
+  --art-opacity: .23;
+  --art-filter: hue-rotate(134deg) saturate(.9);
+  --sheet-background: #f3deb7;
+  --frame-surface: radial-gradient(ellipse at 50% 90%, #d78839 0 27%, #f0ba65 27.2% 40%, #ba5638 40.2% 52%, #ed9d52 52.2% 63%, #f0cc93 63.2% 74%, #f7e2bb 74.2%);
+}
+
+:root[data-theme="seventies"] .theme-decoration::before {
+  position: absolute;
+  content: "";
+  inset: 20% auto -16% -19%;
+  width: 44vw;
+  min-width: 12rem;
+  border: clamp(5px, 1vw, 15px) solid #bf62395e;
+  border-radius: 50%;
+  transform: rotate(-12deg);
+  box-shadow: 0 0 0 clamp(9px, 2.1vw, 32px) #e7a45047, 0 0 0 clamp(14px, 3.4vw, 48px) #ca773b39;
+}
+
+:root[data-theme="seventies"] .wordmark {
+  font-size: clamp(5rem, 12vw, 12rem);
+  font-weight: 700;
+  letter-spacing: -.106em;
+  line-height: .78;
+}
+
+:root[data-theme="seventies"] .wordmark .outline {
+  color: #8d4029;
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: 0;
+  text-shadow: 2px 3px 0 #e6ac57;
+}
+
+:root[data-theme="seventies"] .viewport {
+  border-radius: 46% 46% .7rem .7rem / 28% 28% .7rem .7rem;
+  border: 2px solid #8150328c;
+}
+
+:root[data-theme="seventies"] .viewport .register { opacity: 0; }
+:root[data-theme="seventies"] .primary { border-radius: 2rem; }
+
+/* Xerox zine: torn edge, photocopied grain and black-on-white cuts. */
+:root[data-theme="xerox"] {
+  --paper: #eeede9;
+  --ink: #171717;
+  --cobalt: #242320;
+  --low-ink: #444340;
+  --line: #17171778;
+  --hairline: #17171743;
+  --surface: #f4f2ed;
+  --surface-raised: #f5f3ee;
+  --surface-hover: #d9d7d2;
+  --action: #232323;
+  --on-action: #fffdf7;
+  --display: Impact, "Arial Narrow", Arial, sans-serif;
+  --object-filter: grayscale(1) contrast(1.66) brightness(.92);
+  --art-opacity: .46;
+  --art-filter: grayscale(1) contrast(1.22);
+  --sheet-background: url("./plate.webp") center / cover #eeede9;
+  --frame-surface: #ecebe3bb;
+}
+
+:root[data-theme="xerox"] .sheet { background-blend-mode: luminosity; }
+:root[data-theme="xerox"] .theme-decoration::before,
+:root[data-theme="xerox"] .theme-decoration::after {
+  position: absolute;
+  inset: auto -6% -4rem 7%;
+  height: 8.5rem;
+  background: radial-gradient(circle, #292826 0 1px, transparent 1.2px) 0 0 / 4px 5px;
+  content: "";
+  opacity: .19;
+  clip-path: polygon(0 38%, 13% 51%, 14% 38%, 31% 21%, 43% 31%, 54% 23%, 66% 37%, 86% 8%, 100% 29%, 100% 100%, 0 100%);
+  transform: rotate(-5deg);
+}
+
+:root[data-theme="xerox"] .theme-decoration::after {
+  inset: -1rem 40% auto -13%;
+  opacity: .13;
+  transform: rotate(8deg) scaleY(-1);
+}
+
+:root[data-theme="xerox"] .wordmark {
+  font-size: clamp(4.25rem, 10vw, 10.75rem);
+  line-height: .85;
+  letter-spacing: -.066em;
+  text-transform: uppercase;
+}
+
+:root[data-theme="xerox"] .wordmark > span:first-child {
+  position: relative;
+  width: fit-content;
+  padding: .035em .13em .055em;
+  margin: 0 0 .04em;
+  color: #f4f2ec;
+  transform: rotate(-3deg);
+}
+
+:root[data-theme="xerox"] .wordmark > span:first-child::before {
+  position: absolute;
+  inset: -.015em 0;
+  z-index: -1;
+  background: #232323;
+  clip-path: polygon(0 5%, 97% 0, 100% 31%, 96% 53%, 100% 97%, 67% 92%, 38% 98%, 1% 94%);
+  content: "";
+}
+
+:root[data-theme="xerox"] .wordmark .outline {
+  color: #1f1f1f;
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: 0;
+}
+
+:root[data-theme="xerox"] .viewport { border: 2px dashed #1f1f1f84; }
+:root[data-theme="xerox"] .primary { box-shadow: 4px 4px 0 #2323236e; }
+
+@media (min-width: 981px) {
+  :root[data-theme="swiss"] .composition { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); }
+  :root[data-theme="swiss"] .intro {
+    align-self: start;
+    padding-block-start: clamp(2.5rem, 12svh, 7.5rem);
+  }
+  :root[data-theme="sumi"] .composition { grid-template-columns: minmax(0, .76fr) minmax(0, 1.24fr); }
+}
+
+@media (max-width: 780px) {
+  :root[data-theme="sumi"] .theme-decoration::before { display: none; }
+  :root:is([data-theme="swiss"], [data-theme="bauhaus"], [data-theme="deco"], [data-theme="xerox"]) .wordmark {
+    font-size: clamp(4.5rem, 14vw, 8rem);
+  }
+  :root:is([data-theme="sumi"], [data-theme="seventies"]) .wordmark { font-size: clamp(5.5rem, 16vw, 9rem); }
+}
+
+@media (max-width: 420px) {
+  :root[data-theme="deco"] .theme-decoration::before { inset-inline: .5rem; }
+  :root[data-theme="deco"] .theme-decoration::after { inset-inline: .75rem; }
+  :root[data-theme="bauhaus"] .theme-decoration::before { opacity: .63; }
+}
