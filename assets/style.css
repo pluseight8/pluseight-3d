@@ -176,17 +176,11 @@ a:focus-visible, button:focus-visible, .canvas-mount:focus-visible {
   -webkit-text-fill-color: var(--cobalt);
   -webkit-text-stroke: 0;
 }
-.intro-copy {
-  max-width: 27ch;
-  margin: 2.25rem 0 1.5rem;
-  font-size: clamp(1rem, 1.375vw, 1.1875rem);
-  font-weight: 600;
-  line-height: 1.55;
-}
 .primary {
   display: inline-flex;
   min-width: 10.75rem;
   min-height: 3.25rem;
+  margin-block-start: 2.25rem;
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
@@ -380,8 +374,7 @@ a:focus-visible, button:focus-visible, .canvas-mount:focus-visible {
   .intro { padding-block: 1.25rem 1rem; padding-inline: clamp(0rem, 3vw, 2rem); }
   .eyebrow { margin-bottom: 1.25rem; }
   .wordmark { font-size: clamp(6.25rem, 21vw, 10rem); }
-  .intro-copy { margin: 1.75rem 0 1.25rem; }
-  .primary { min-height: 2.875rem; }
+  .primary { min-height: 2.875rem; margin-block-start: 1.75rem; }
   .viewport { height: clamp(21rem, 91vw, 37rem); }
   .scene-help { max-width: none; }
   .site-footer { min-height: 3.75rem; }
