@@ -4,23 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#efede5">
-  <meta name="description" content="Личный сайт pluseight с интерактивной 3D-восьмёркой.">
+  <meta name="description" content="Личный сайт pluseight с интерактивной 3D-восьмёркой и движущейся кобальтовой графикой.">
   <title>pluseight — интерактивный автопортрет</title>
   <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/vendor/space-grotesk-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./assets/style.css">
-  <script type="module" src="./assets/main.js"></script>
+  <link rel="stylesheet" href="./assets/style.css?v=2">
+  <script type="module" src="./assets/main.js?v=2"></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#intro">К содержанию</a>
   <div class="sheet">
+    <div class="background-art" id="background-art" aria-hidden="true"></div>
     <header class="masthead">
       <a class="brand" href="#top" aria-label="pluseight — начало страницы">
         <span class="brand-mark" aria-hidden="true"></span>
         <span>pluseight</span>
       </a>
       <nav aria-label="Навигация по сайту">
-        <a class="nav-intro" href="#intro">Обо мне</a>
+        <a class="nav-intro" href="#intro" aria-current="location">Обложка</a>
         <a href="#scene">3D-сцена</a>
         <a class="source-link" href="https://github.com/pluseight8">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
@@ -34,7 +35,7 @@
           <span class="outline" aria-hidden="true">eight<span class="wordmark-dot">.</span></span>
         </h1>
         <a class="primary" href="#scene" id="explore">
-          <span>К 3D-сцене</span><span class="primary-arrow" aria-hidden="true">↘</span>
+          <span>Открыть сцену</span><span class="primary-arrow" aria-hidden="true">↘</span>
         </a>
       </section>
 
@@ -58,7 +59,7 @@
               <button type="button" data-mode="solid" aria-pressed="true">Объём</button>
               <button type="button" data-mode="wire" aria-pressed="false">Каркас</button>
             </div>
-            <button class="icon-button" type="button" id="motion" aria-label="Автовращение" aria-pressed="true" title="Автовращение">
+            <button class="icon-button" type="button" id="motion" aria-label="Автоматическое движение" aria-pressed="true" title="Пауза анимации">
               <span class="motion-icon" aria-hidden="true"></span>
             </button>
             <button class="icon-button reset" type="button" id="reset" aria-label="Вернуть исходный ракурс" title="Вернуть исходный ракурс">↺</button>

@@ -1,4 +1,5 @@
 const mount = document.querySelector("#canvas-mount");
+const backgroundMount = document.querySelector("#background-art");
 const viewport = document.querySelector("#viewport");
 const explore = document.querySelector("#explore");
 const help = document.querySelector("#scene-help");
@@ -7,24 +8,41 @@ const controls = document.querySelector("#scene-controls");
 const modeButtons = [...document.querySelectorAll("[data-mode]")];
 const motionButton = document.querySelector("#motion");
 const resetButton = document.querySelector("#reset");
+const sectionLinks = document.querySelectorAll('.masthead nav a[href^="#"]');
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let scene;
+let background;
 let animationEnabled = !reduceMotion.matches;
 let currentMode = "solid";
 
 function updateMotion(enabled) {
   animationEnabled = enabled;
   motionButton.setAttribute("aria-pressed", String(enabled));
+  motionButton.title = enabled ? "Пауза анимации" : "Возобновить анимацию";
   scene?.setMotion(enabled);
+  background?.setMotion(enabled && !controls.hidden);
 }
 
 function showStatic() {
   viewport.classList.remove("has-scene");
   mount.tabIndex = -1;
   controls.hidden = true;
+  background?.setMotion(false);
   help.textContent = "Статичный ракурс";
   state.textContent = "Статичный вид";
+}
+
+async function startBackground() {
+  try {
+    const { mountBackground } = await import("./background.js");
+    background = mountBackground(backgroundMount, {
+      motion: animationEnabled && !controls.hidden,
+      onReady: () => backgroundMount.classList.add("is-ready"),
+    });
+  } catch (error) {
+    console.error("Не удалось загрузить 3D-фон.", error);
+  }
 }
 
 function showScene() {
@@ -69,6 +87,17 @@ motionButton.addEventListener("click", () => updateMotion(!animationEnabled));
 resetButton.addEventListener("click", () => scene?.reset());
 reduceMotion.addEventListener("change", (event) => updateMotion(!event.matches));
 
+function markCurrentSection() {
+  const current = location.hash === "#scene" ? "#scene" : "#intro";
+  for (const link of sectionLinks) {
+    if (link.hash === current) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  }
+}
+
+window.addEventListener("hashchange", markCurrentSection);
+markCurrentSection();
+
 const turn = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: "up", ArrowDown: "down" };
 mount.addEventListener("keydown", (event) => {
   if (!scene || !(event.key in turn)) return;
@@ -77,3 +106,4 @@ mount.addEventListener("keydown", (event) => {
 });
 
 startScene();
+startBackground();
